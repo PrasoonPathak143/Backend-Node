@@ -1,7 +1,16 @@
 const http = require('http');
 
 var server = http.createServer(function(req, res){
-    res.end("Server is running and you are getting data");
+    if(req.url==='/'){
+        res.end("Home page");
+    }
+    else if(req.url === '/profile'){
+        res.end("Profile page");
+    }
+    else{
+        res.end("URL is not mentioned");
+    }
+   
 });
 
 server.listen(3000,function(){
